@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 8 - Événements</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ message }}</p>
+    <!-- Syntaxe complète -->
+    <button v-on:click="sayHello">
+      Cliquez ici (v-on:click)
+    </button>
+    <!-- Syntaxe raccourcie -->
+    <button @click="sayHello">
+      Cliquez ici (@click)
+    </button>
+
+    <h3>Compteur de clics</h3>
+    <p>{{ clicks }}</p>
+    <button @click="increment">
+      Cliquer
+    </button>
+    <!-- Transmettre un paramètre à une méthode -->
+    <button @click="incrementBy(5)">
+      +5
+    </button>
+  </div>
+
+  <!-- Chargement de Vue.js 3 depuis le CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      data() {
+        return {
+          message: 'Bonjour !',
+          clicks: 0
+        }
+      },
+      methods: {
+        sayHello() {
+          alert('Bonjour et bienvenue !')
+        },
+        increment() {
+          this.clicks++
+        },
+        incrementBy(amount) {
+          this.clicks += amount
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

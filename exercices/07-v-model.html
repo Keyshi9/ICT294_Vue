@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 7 - v-model</title>
+</head>
+<body>
+  <div id="app">
+    <!-- Champ texte -->
+    <label>Votre nom :</label>
+    <input type="text" v-model="username">
+    <p>Bonjour {{ username }} !</p>
+
+    <!-- Case à cocher -->
+    <label>
+      <input type="checkbox" v-model="accepted">
+      J'accepte les conditions
+    </label>
+    <p>Conditions acceptées : {{ accepted }}</p>
+
+    <!-- Liste déroulante -->
+    <select v-model="selectedCountry">
+      <option value="fr">France</option>
+      <option value="ch">Suisse</option>
+      <option value="be">Belgique</option>
+    </select>
+    <p>Pays : {{ selectedCountry }}</p>
+
+    <!-- Zone de texte -->
+    <textarea v-model="description"></textarea>
+    <p>Description : {{ description }}</p>
+  </div>
+
+  <!-- Chargement de Vue.js 3 depuis le CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      data() {
+        return {
+          username: '',
+          accepted: false,
+          selectedCountry: 'ch',
+          description: ''
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

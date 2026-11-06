@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 6 - v-for</title>
+</head>
+<body>
+  <div id="app">
+    <h2>Nos produits</h2>
+    <ul>
+      <li v-for="product in products">
+        {{ product }}
+      </li>
+    </ul>
+
+    <!-- Exemple avec des objets et :key -->
+    <ul>
+      <li v-for="item in items"
+          :key="item.id">
+        {{ item.name }} -
+        {{ item.price }} €
+      </li>
+    </ul>
+  </div>
+
+  <!-- Chargement de Vue.js 3 depuis le CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      data() {
+        return {
+          products: [
+            'Chaussettes',
+            'Chaussures',
+            'T-shirt',
+            'Pull'
+          ],
+          items: [
+            { id: 1, name: 'Chaussettes', price: 12 },
+            { id: 2, name: 'Chaussures', price: 80 },
+            { id: 3, name: 'T-shirt', price: 25 }
+          ]
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
