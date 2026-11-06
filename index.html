@@ -9,6 +9,13 @@
     <h1>{{ product }}</h1>
     <p>Prix : {{ price }} €</p>
     <p>Quantité : {{ quantity }}</p>
+
+    <button @click="increaseQuantity">
+      +
+    </button>
+    <button @click="decreaseQuantity">
+      -
+    </button>
   </div>
 
   <!-- Chargement de Vue.js 3 depuis le CDN -->
@@ -22,7 +29,16 @@
         return {
           product: 'Chaussettes',
           price: 12,
-          quantity: 2
+          quantity: 1
+        }
+      },
+      // methods contient les fonctions de l'application
+      methods: {
+        increaseQuantity() {
+          this.quantity++
+        },
+        decreaseQuantity() {
+          this.quantity--
         }
       }
     }).mount('#app')
