@@ -6,7 +6,9 @@
 </head>
 <body>
   <div id="app">
-    <h1>{{ message }}</h1>
+    <h1>{{ product }}</h1>
+    <p>Prix : {{ price }} €</p>
+    <p>Quantité : {{ quantity }}</p>
   </div>
 
   <!-- Chargement de Vue.js 3 depuis le CDN -->
@@ -15,9 +17,12 @@
     const { createApp } = Vue
 
     createApp({
+      // data() définit les données réactives de l'application
       data() {
         return {
-          message: 'Bonjour Vue.js !'
+          product: 'Chaussettes',
+          price: 12,
+          quantity: 2
         }
       }
     }).mount('#app')
