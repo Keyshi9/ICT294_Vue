@@ -19,6 +19,28 @@
 
     <!-- Étape 4 : computed -->
     <h3>Total : {{ totalPrice }} €</h3>
+
+    <!-- Étape 5 : v-if / v-else -->
+    <p v-if="isAvailable">
+      Produit disponible !
+    </p>
+    <p v-else>
+      Produit indisponible.
+    </p>
+
+    <!-- v-else-if pour tester plusieurs conditions -->
+    <p v-if="stock > 10">
+      Stock suffisant
+    </p>
+    <p v-else-if="stock > 0">
+      Stock limité
+    </p>
+    <p v-else>
+      Rupture de stock
+    </p>
+
+    <!-- v-show masque l'élément avec CSS (display: none) sans le retirer du DOM -->
+    <p v-show="isAvailable">Livraison gratuite dès 50 € d'achat.</p>
   </div>
 
   <!-- Chargement de Vue.js 3 depuis le CDN -->
@@ -32,7 +54,9 @@
         return {
           product: 'Chaussettes',
           price: 12,
-          quantity: 1
+          quantity: 1,
+          isAvailable: true,
+          stock: 5
         }
       },
       // methods contient les fonctions de l'application
