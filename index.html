@@ -84,6 +84,29 @@
     <!-- Zone de texte -->
     <textarea v-model="description"></textarea>
     <p>Description : {{ description }}</p>
+
+    <!-- Étape 8 : gestion des événements -->
+    <h2>Événements</h2>
+    <p>{{ message }}</p>
+    <!-- Syntaxe complète -->
+    <button v-on:click="sayHello">
+      Cliquez ici (v-on:click)
+    </button>
+    <!-- Syntaxe raccourcie -->
+    <button @click="sayHello">
+      Cliquez ici (@click)
+    </button>
+
+    <!-- Compteur de clics -->
+    <h3>Compteur de clics</h3>
+    <p>{{ clicks }}</p>
+    <button @click="increment">
+      Cliquer
+    </button>
+    <!-- Transmettre un paramètre à une méthode -->
+    <button @click="incrementBy(5)">
+      +5
+    </button>
   </div>
 
   <!-- Chargement de Vue.js 3 depuis le CDN -->
@@ -114,7 +137,9 @@
           username: '',
           accepted: false,
           selectedCountry: 'ch',
-          description: ''
+          description: '',
+          message: 'Bonjour !',
+          clicks: 0
         }
       },
       // methods contient les fonctions de l'application
@@ -124,6 +149,15 @@
         },
         decreaseQuantity() {
           this.quantity--
+        },
+        sayHello() {
+          alert('Bonjour et bienvenue !')
+        },
+        increment() {
+          this.clicks++
+        },
+        incrementBy(amount) {
+          this.clicks += amount
         }
       },
       // computed calcule des valeurs à partir des données réactives
