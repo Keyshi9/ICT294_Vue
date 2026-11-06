@@ -16,6 +16,9 @@
     <button @click="decreaseQuantity">
       -
     </button>
+
+    <!-- Étape 4 : computed -->
+    <h3>Total : {{ totalPrice }} €</h3>
   </div>
 
   <!-- Chargement de Vue.js 3 depuis le CDN -->
@@ -39,6 +42,12 @@
         },
         decreaseQuantity() {
           this.quantity--
+        }
+      },
+      // computed calcule des valeurs à partir des données réactives
+      computed: {
+        totalPrice() {
+          return this.price * this.quantity
         }
       }
     }).mount('#app')
