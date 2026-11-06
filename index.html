@@ -58,6 +58,32 @@
         {{ product.price }} €
       </li>
     </ul>
+
+    <!-- Étape 7 : v-model (liaison bidirectionnelle) -->
+    <h2>Formulaire</h2>
+    <label>Votre nom :</label>
+    <!-- Champ texte -->
+    <input type="text" v-model="username">
+    <p>Bonjour {{ username }} !</p>
+
+    <!-- Case à cocher -->
+    <label>
+      <input type="checkbox" v-model="accepted">
+      J'accepte les conditions
+    </label>
+    <p>Conditions acceptées : {{ accepted }}</p>
+
+    <!-- Liste déroulante -->
+    <select v-model="selectedCountry">
+      <option value="fr">France</option>
+      <option value="ch">Suisse</option>
+      <option value="be">Belgique</option>
+    </select>
+    <p>Pays sélectionné : {{ selectedCountry }}</p>
+
+    <!-- Zone de texte -->
+    <textarea v-model="description"></textarea>
+    <p>Description : {{ description }}</p>
   </div>
 
   <!-- Chargement de Vue.js 3 depuis le CDN -->
@@ -84,7 +110,11 @@
             { id: 1, name: 'Chaussettes', price: 12 },
             { id: 2, name: 'Chaussures', price: 80 },
             { id: 3, name: 'T-shirt', price: 25 }
-          ]
+          ],
+          username: '',
+          accepted: false,
+          selectedCountry: 'ch',
+          description: ''
         }
       },
       // methods contient les fonctions de l'application
