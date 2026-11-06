@@ -41,6 +41,23 @@
 
     <!-- v-show masque l'élément avec CSS (display: none) sans le retirer du DOM -->
     <p v-show="isAvailable">Livraison gratuite dès 50 € d'achat.</p>
+
+    <!-- Étape 6 : v-for sur un tableau de chaînes -->
+    <h2>Nos produits</h2>
+    <ul>
+      <li v-for="name in productNames">
+        {{ name }}
+      </li>
+    </ul>
+
+    <!-- v-for sur un tableau d'objets, avec :key -->
+    <ul>
+      <li v-for="product in products"
+          :key="product.id">
+        {{ product.name }} -
+        {{ product.price }} €
+      </li>
+    </ul>
   </div>
 
   <!-- Chargement de Vue.js 3 depuis le CDN -->
@@ -56,7 +73,18 @@
           price: 12,
           quantity: 1,
           isAvailable: true,
-          stock: 5
+          stock: 5,
+          productNames: [
+            'Chaussettes',
+            'Chaussures',
+            'T-shirt',
+            'Pull'
+          ],
+          products: [
+            { id: 1, name: 'Chaussettes', price: 12 },
+            { id: 2, name: 'Chaussures', price: 80 },
+            { id: 3, name: 'T-shirt', price: 25 }
+          ]
         }
       },
       // methods contient les fonctions de l'application
